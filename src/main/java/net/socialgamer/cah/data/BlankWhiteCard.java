@@ -30,7 +30,7 @@ public class BlankWhiteCard extends WhiteCard {
 
   @Override
   public String getWatermark() {
-    return "____";
+    return "BLANK";
   }
 
   @Override

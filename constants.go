@@ -249,11 +249,11 @@ const (
 )
 
 var ErrorCodeMsgs = map[string]string{
-	 "cii": "Invalid Cardcast ID. Must be exactly 5 characters.",
+	 "cii": "Invalid CRCast ID. Must be exactly 5 characters.",
 	 "nr": "Not registered. Refresh the page.",
 	 "iid": "Identification code, if provided, must be between 8 and 100 characters, inclusive.",
 	 "ns": "Session not detected. Make sure you have cookies enabled.",
-	 "ccf": "Cannot find Cardcast deck with given ID. If you just added this deck to Cardcast, wait a few minutes and try again.",
+	 "ccf": "Cannot find CRCast deck with given ID. If you just added this deck to CRCast, wait a few minutes and try again.",
 	 "nyt": "It is not your turn to play a card.",
 	 "bo": "Invalid operation.",
 	 "nec": "You must add card sets containing at least 50 black cards and 20 times the player limit white cards.",
