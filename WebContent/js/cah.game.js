@@ -813,7 +813,7 @@ cah.Game.prototype.removeCardcastDeck = function(data) {
  */
 cah.Game.prototype.listCardcastDecks = function(cardSets) {
   cah.log.status_with_game(this, "The following <a target='_blank'"
-      + " href='http://www.cardcastgame.com'>Cardcast</a> decks are in use in this game (<a"
+      + " href='https://cast.clrtd.com/'>CRCast</a> decks are in use in this game (<a"
       + " target='_blank' href='https://github.com/ajanata/PretendYoureXyzzy/wiki/Cardcast'>"
       + "instructions</a>):", 'admin', true);
   for ( var key in cardSets) {
@@ -833,8 +833,8 @@ cah.Game.prototype.listCardcastDecks = function(cardSets) {
  */
 cah.Game.prototype.displayCardcastDeckMessage_ = function(deckInfo, verb) {
   var code = ("00000" + (-1 * deckInfo[cah.$.CardSetData.ID]).toString(36).toUpperCase()).slice(-5);
-  var str = verb + ": Cardcast deck '" + deckInfo[cah.$.CardSetData.CARD_SET_NAME]
-      + "' (code: <a target='_blank' href='http://www.cardcastgame.com/browse/deck/" + code + "'> "
+  var str = verb + ": CRCast deck '" + deckInfo[cah.$.CardSetData.CARD_SET_NAME]
+      + "' (code: <a target='_blank' href='https://cast.clrtd.com/cc/decks" + code + "cards'> "
       + code + "</a>), with " + deckInfo[cah.$.CardSetData.BLACK_CARDS_IN_DECK]
       + " black cards and " + deckInfo[cah.$.CardSetData.WHITE_CARDS_IN_DECK] + " white cards.";
   cah.log.status_with_game(this, str, 'admin', true);

@@ -740,7 +740,7 @@ public class Game {
                     final CardcastDeck cardcastDeck = service.loadSet(cardcastId);
                     if (null == cardcastDeck) {
                         // TODO better way to indicate this to the user
-                        logger.error(String.format("Unable to load %s from Cardcast", cardcastId));
+                        logger.error(String.format("Unable to load %s from CRCast", cardcastId));
                         return null;
                     }
                     cardSets.add(cardcastDeck);

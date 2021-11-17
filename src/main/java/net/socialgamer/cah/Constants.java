@@ -365,9 +365,9 @@ public class Constants {
     BANNED(DisconnectReason.BANNED, "Banned."),
     CANNOT_JOIN_ANOTHER_GAME("cjag", "You cannot join another game."),
     CAPSLOCK("CL", "Try turning caps lock off."),
-    CARDCAST_CANNOT_FIND("ccf", "Cannot find Cardcast deck with given ID. If you just added this"
-        + " deck to Cardcast, wait a few minutes and try again."),
-    CARDCAST_INVALID_ID("cii", "Invalid Cardcast ID. Must be exactly 5 characters."),
+    CARDCAST_CANNOT_FIND("ccf", "Cannot find CRCast deck with given ID. If you just added this"
+        + " deck to CRCast, wait a few minutes and try again."),
+    CARDCAST_INVALID_ID("cii", "Invalid CRCast ID. Must be exactly 5 characters."),
     DO_NOT_HAVE_CARD("dnhc", "You don't have that card."),
     GAME_FULL("gf", "That game is full. Join another."),
     INVALID_CARD("ic", "Invalid card specified."),

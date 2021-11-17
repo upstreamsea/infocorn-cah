@@ -64,7 +64,7 @@ public class CardcastService {
   /**
    * Base URL to the Cardcast API.
    */
-  private static final String BASE_URL = "http://" + HOSTNAME + "/cc/decks/";
+  private static final String BASE_URL = "https://" + HOSTNAME + "/cc/decks/";
   /**
    * URL to the Cardcast API for information about a card set. The only format replacement is the
    * string deck ID.
