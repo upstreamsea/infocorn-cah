@@ -166,19 +166,6 @@ public class ChatFilter {
       }
     }
 
-    final String messageLower = message.toLowerCase(Locale.ENGLISH);
-    // TODO keep track of how much someone does this and perma-shadowban them...
-    for (final String banned : getShadowbanCharacters()) {
-      // assume that the banned strings are already lowercase
-      // check both ways in case it decides lowercase of some unicode is not what we want though
-      if (message.contains(banned) || messageLower.contains(banned)) {
-        LOG.info(String.format(
-            "Dropping message '%s' from user %s (%s); contains banned string %s.", message,
-            user.getNickname(), user.getHostname(), banned));
-        return Result.DROP_MESSAGE;
-      }
-    }
-
     return Result.OK;
   }
 
@@ -202,20 +189,6 @@ public class ChatFilter {
       LOG.warn(String.format("Unable to parse pyx.chat.%s.%s as a number,"
           + " using default of %d", scope, name, defaultValue), e);
       return defaultValue;
-    }
-  }
-
-  private Set<String> getShadowbanCharacters() {
-    try {
-      return ((ShadowBannedStringProvider) Class
-          .forName(getPropValue("pyx.chat.shadowban_strings_provider",
-          DEFAULT_SHADOWBAN_PROVIDER)).newInstance()).getShadowBannedStrings();
-    } catch (final InstantiationException | IllegalAccessException | ClassNotFoundException
-        | ClassCastException e) {
-      LOG.error(String.format("Unable to load shadowban string provider %s, using empty set.",
-          getPropValue("pyx.chat.shadowban_strings_provider", DEFAULT_SHADOWBAN_PROVIDER)),
-          e);
-      return Collections.emptySet();
     }
   }
 

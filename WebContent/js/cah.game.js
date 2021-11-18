@@ -834,7 +834,7 @@ cah.Game.prototype.listCardcastDecks = function(cardSets) {
 cah.Game.prototype.displayCardcastDeckMessage_ = function(deckInfo, verb) {
   var code = ("00000" + (-1 * deckInfo[cah.$.CardSetData.ID]).toString(36).toUpperCase()).slice(-5);
   var str = verb + ": CRCast deck '" + deckInfo[cah.$.CardSetData.CARD_SET_NAME]
-      + "' (code: <a target='_blank' href='https://cast.clrtd.com/cc/decks" + code + "cards'> "
+      + "' (code: <a target='_blank' href='https://cast.clrtd.com/decks/" + code + "'> "
       + code + "</a>), with " + deckInfo[cah.$.CardSetData.BLACK_CARDS_IN_DECK]
       + " black cards and " + deckInfo[cah.$.CardSetData.WHITE_CARDS_IN_DECK] + " white cards.";
   cah.log.status_with_game(this, str, 'admin', true);
