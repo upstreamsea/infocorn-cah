@@ -10,20 +10,13 @@ pyx.allow_blank_cards=true
 # allow identification codes to be used without HTTPS
 pyx.insecure_id_allowed=true
 # set this to some secure random value, and never change it, unless you want to break all codes
-pyx.id_code_salt=12RjNru_TF5l:)87-m:h.tawVKSBjhvBohxLgRo8?z@sX#bTJs3T4exGrQJU
+pyx.id_code_salt=
 # comma-separated listed of IP addresses (v4 or v6) from which users are considered admins.
 # IPv6 addresses must be fully spelt out without omitting groups of 0s with ::
-pyx.admin_addrs=24.118.95.250
+pyx.admin_addrs=127.0.0.1
 # comma-separated list of strings banned from appearing in nicks.
-pyx.banned_nicks=nigger,nigga
+pyx.banned_nicks=
 
-# The name of a class that implements net.socialgamer.cah.util.ChatFilter.ShadowBannedStringProvider
-# which will then be called to get the shadowbanned strings.
-# Ideally we'd just have the list of strings here, but providing unicode characters directly gets
-# mangled during the build process, and for some reason unicode escapes were not being loaded
-# properly at runtime.
-# If this is blank, it is ignored and no strings will cause such filtering to occur.
-pyx.shadowban_strings_provider=
 # Settings for global chat protection. Some of these do not apply to game chats.
 # Ratio of 'basic' characters to length of message. Basic characters are defined by
 # Character.isJavaIdentifierPart, which stipulates:
