@@ -314,7 +314,7 @@ cah.card.BlackCard.prototype.updateCardInfo_ = function() {
       $(".pick", this.faceUpElem_).addClass("hide");
     }
   } else {
-    $(".logo_text", this.faceUpElem_).text("Pretend You're Xyzzy");
+    $(".logo_text", this.faceUpElem_).text("Log's CAH");
   }
 };
 

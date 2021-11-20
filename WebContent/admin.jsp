@@ -226,14 +226,9 @@ User list:
 </table>
 
 <%
-// TODO remove this "verbose logging" crap now that log4j is working.
 Boolean verboseDebugObj = (Boolean) servletContext.getAttribute(StartupUtils.VERBOSE_DEBUG); 
 boolean verboseDebug = verboseDebugObj != null ? verboseDebugObj.booleanValue() : false;
 %>
-<p>
-  Verbose logging is currently <strong><%= verboseDebug ? "ON" : "OFF" %></strong>.
-  <a href="?verbose=on">Turn on.</a> <a href="?verbose=off">Turn off.</a>
-</p>
 <p>
   <a href="?reloadLog4j=true">Reload log4j.properties.</a>
 </p>

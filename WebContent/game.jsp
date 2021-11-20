@@ -51,7 +51,7 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>The DEF CON CAH Server</title>
+<title>Log's CAH Server</title>
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="js/jquery-migrate-1.2.1.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
@@ -86,7 +86,7 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          The DEF CON Cards Against Humanity Server
+          Log's Cards Against Humanity Server
         </a>
       </div>
     </div>
@@ -254,7 +254,7 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
         <br/>
         <span class="watermark"></span>
 	    </div>
-	    <div class="logo_text">DEF CON</div>
+	    <div class="logo_text">Log's CAH</div>
 	  </div>
     <div class="card_metadata">
       <div class="pick hide">PICK <div class="card_number"></div></div>
@@ -282,7 +282,7 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
         <br/>
         <span class="watermark"></span>
 	    </div>
-	    <div class="logo_text">DEF CON</div>
+	    <div class="logo_text">Log's CAH</div>
 	  </div>
 	</div>
 </div>
@@ -444,13 +444,13 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
       <% if (allowBlankCards) { %>
         <br/>
         <label id="blanks_limit_label" title="Blank cards allow a player to type in their own answer.">
-          Also include <select id="blanks_limit_template" class="blanks_limit">
+          Blank White Cards: <select id="blanks_limit_template" class="blanks_limit">
           <%
             for (int i = injector.getInstance(Key.get(Integer.class, MinBlankCardLimit.class)); i <= injector.getInstance(Key.get(Integer.class, MaxBlankCardLimit.class)); i++) {
           %>
             <option <%= i == injector.getInstance(Key.get(Integer.class, DefaultBlankCardLimit.class)) ? "selected='selected' " : "" %>value="<%= i %>"><%= i %></option>
           <% } %>
-          </select> blank white cards.
+          </select>
         </label>
       <% } %>
       <br/>
