@@ -10863,14 +10863,6 @@ textarea.form-control-lg {
   overflow: hidden;
 }
 
-body {
-  min-height: 640px;
-  background: #eee;
-  color: #000;
-  font-size: 12px;
-  margin: 0;
-}
-
 .card, #game_list {
   font-family: "helvetica neue", helvetica, Arial, sans-serif;
 }
@@ -10946,6 +10938,9 @@ h2,h3,h4 {
   padding: 1em;
 }
 
+.welcomeheader {
+  padding: 0em;
+}
 
 #game_list {
   height: 100%;
