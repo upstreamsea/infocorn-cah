@@ -2,16 +2,13 @@
 <%--
 Copyright (c) 2012-2020, Andy Janata
 All rights reserved.
-
 Redistribution and use in source and binary forms, with or without modification, are permitted
 provided that the following conditions are met:
-
 * Redistributions of source code must retain the above copyright notice, this list of conditions
   and the following disclaimer.
 * Redistributions in binary form must reproduce the above copyright notice, this list of
   conditions and the following disclaimer in the documentation and/or other materials provided
   with the distribution.
-
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
 IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
 FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
@@ -24,7 +21,6 @@ WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH 
 <%--
 The main game page. This is almost entirely static HTML, other than ensuring that a session is
 created for the user now.
-
 @author Andy Janata (ajanata@socialgamer.net)
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
@@ -51,7 +47,7 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Log's CAH Server</title>
+<title>InfoCorn</title>
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="js/jquery-migrate-1.2.1.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
@@ -76,57 +72,32 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
 <script type="text/javascript" src="js/cah.ajax.builder.js"></script>
 <script type="text/javascript" src="js/cah.ajax.handlers.js"></script>
 <script type="text/javascript" src="js/cah.app.js"></script>
-<link href="cah.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<!--<link rel="stylesheet" type="text/css" href="jquery-ui.min.css" media="screen" />-->
+<link rel="stylesheet" type="text/css" href="cah.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="jquery-ui.min.css" media="screen" />
+<jsp:include page="analytics.jsp" />
 </head>
 <body id="gamebody">
 
-  <div class="p-3 bg-dark text-white">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          Log's Cards Against Humanity Server
-        </a>
-      </div>
-    </div>
+<div id="welcome">
+  <h1 tabindex="0">
+    Welcome to InfoCorn!
+  </h1>
+  <div id="nickbox">
+    <label for="nickname">Nickname:</label>
+    <input type="text" id="nickname" value="" maxlength="30" role="textbox"
+        aria-label="Enter your nickname." data-lpignore="true" />
+    <input type="button" id="nicknameconfirm" value="Set" />
+    <span id="nickbox_error" class="error"></span>
   </div>
-  <div id="welcome">
-    <form>
-      <div class="container mt-3">
-        <h2>New game. Who dis?</h2>
-        <input type="text" class="form-control" id="nickname" maxlength="30" aria-describedby="nickChar">
-        <div id="nickChar" class="form-text">Usernames must be between 3 and 30 characters.</div>
-        <input type="button" id="nicknameconfirm" class="btn btn-warning" value="Set Nickname"/>
-      </div>
-    </form>
-  </div>
-
-  <div id="canvas" class="hide">
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    <div class="collapse navbar-collapse" id="navbarButtonsExample">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <button type="button" id="refresh_games" class="btn btn-primary px-3 me-2">
-          Refresh Games
-        </button>
-        <button type="button" id="create_game" class="btn btn-primary px-3 me-2">
-          Create Game
-        </button>
-      </ul>
-
-      <div class="d-flex align-items-center">
-      </div>
-    </div>
-  </div>
-</nav>
 </div>
 
-<!--<div id="p-3 bg-dark text-white">
-  <div id="container">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-      <input type="button" id="refresh_games" class="btn btn-primary" value="Refresh Games" />
-      <input type="button" id="create_game" class="btn btn-primary"value="Create Game" />
+<div id="canvas" class="hide">
+  <div id="menubar">
+    <div id="menubar_left">
+      <input type="button" id="refresh_games" class="hide" value="Refresh Games" />
+      <input type="button" id="create_game" class="hide" value="Create Game" />
+      <input type="text" id="filter_games" class="hide" placeholder="Filter games by keyword"
+          data-lpignore="true"/>
 
       <input type="button" id="leave_game" class="hide" value="Leave Game" />
       <input type="button" id="start_game" class="hide" value="Start Game" />
@@ -139,7 +110,7 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
           onclick="window.open('viewcards.jsp', 'viewcards');" />
       <input type="button" id="logout" value="Log out" />
     </div>
-  </div>-->
+  </div>
   <div id="main">
     <div id="game_list" class="hide">
     </div>
@@ -271,11 +242,11 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
         <br/>
         <span class="watermark"></span>
 	    </div>
-	    <div class="logo_text">Log's CAH</div>
+	    <div class="logo_text">InfoCorn</div>
 	  </div>
     <div class="card_metadata">
-      <div class="pick hide">PICK <div class="card_number"></div></div>
       <div class="draw hide">DRAW <div class="card_number"></div></div>
+      <div class="pick hide">PICK <div class="card_number"></div></div>
     </div>
 	</div>
 </div>
@@ -299,7 +270,7 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
         <br/>
         <span class="watermark"></span>
 	    </div>
-	    <div class="logo_text">Log's CAH</div>
+	    <div class="logo_text">InfoCorn</div>
 	  </div>
 	</div>
 </div>
@@ -327,7 +298,9 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
       <div style="width:100%; height:100%;">
         <div class="game_left_side">
           <div class="game_black_card_wrapper">
-            <span tabindex="0">This Round's Black Card:</span>
+            <span tabindex="0">The black card for
+                <span class="game_black_card_round_indicator">this round is</span>:
+            </span>
             <div class="game_black_card" tabindex="0">
             </div>
           </div>
@@ -337,7 +310,7 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
         </div>
         <div class="game_right_side hide">
           <div class="game_right_side_box game_white_card_wrapper">
-            <span tabindex="0">White Cards Played:</span>
+            <span tabindex="0">The white cards played this round are:</span>
             <div class="game_white_cards game_right_side_cards">
             </div>
           </div>
@@ -428,7 +401,7 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
           <option <%= i == injector.getInstance(Key.get(Integer.class, DefaultSpectatorLimit.class)) ? "selected='selected' " : "" %>value="<%= i %>"><%= i %></option>
         <% } %>
       </select>
-      Spectators can watch and chat, but not actually play. Not even as Czar.
+      Spectators can watch and chat, but not actually play. Not even as Card Caddy.
       <br/>
       <label id="timer_multiplier_template_label" for="timer_multiplier_template"
           title="Players will be skipped if they have not played within a reasonable amount of time. This is the multiplier to apply to the default timeouts, or Unlimited to disable timeouts.">
@@ -461,13 +434,13 @@ boolean allowBlankCards = injector.getInstance(Key.get(new TypeLiteral<Boolean>(
       <% if (allowBlankCards) { %>
         <br/>
         <label id="blanks_limit_label" title="Blank cards allow a player to type in their own answer.">
-          Blank White Cards: <select id="blanks_limit_template" class="blanks_limit">
+          Also include <select id="blanks_limit_template" class="blanks_limit">
           <%
             for (int i = injector.getInstance(Key.get(Integer.class, MinBlankCardLimit.class)); i <= injector.getInstance(Key.get(Integer.class, MaxBlankCardLimit.class)); i++) {
           %>
             <option <%= i == injector.getInstance(Key.get(Integer.class, DefaultBlankCardLimit.class)) ? "selected='selected' " : "" %>value="<%= i %>"><%= i %></option>
           <% } %>
-          </select>
+          </select> blank white cards.
         </label>
       <% } %>
       <br/>

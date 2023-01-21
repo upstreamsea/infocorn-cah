@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Log's CAH Server</title>
+<title>InfoCorn</title>
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="js/jquery-migrate-1.2.1.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>
@@ -37,7 +37,7 @@
     <div class="container">
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
         <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          Log's Cards Against Humanity Server
+          Welcome to InfoCorn!
         </a>
       </div>
     </div>
@@ -379,7 +379,7 @@
           <option <%= i == injector.getInstance(Key.get(Integer.class, DefaultSpectatorLimit.class)) ? "selected='selected' " : "" %>value="<%= i %>"><%= i %></option>
         <% } %>
       </select>
-      Spectators can watch and chat, but not actually play. Not even as Czar.
+      Spectators can watch and chat, but not actually play. Not even as Card Daddy.
       <br/>
       <label id="timer_multiplier_template_label" for="timer_multiplier_template"
           title="Players will be skipped if they have not played within a reasonable amount of time. This is the multiplier to apply to the default timeouts, or Unlimited to disable timeouts.">

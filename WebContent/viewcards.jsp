@@ -138,7 +138,7 @@ try {
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Pretend You're Xyzzy: View Cards</title>
+<title>InfoCorn: View Cards</title>
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript" src="js/jquery-migrate-1.2.1.js"></script>
 <script type="text/javascript" src="js/jquery.cookie.js"></script>

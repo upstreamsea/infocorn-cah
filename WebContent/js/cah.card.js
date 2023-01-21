@@ -299,7 +299,7 @@ cah.card.BlackCard.prototype.setPick = function(pick) {
  */
 cah.card.BlackCard.prototype.updateCardInfo_ = function() {
   if (this.draw_ != 0 || this.pick_ != 1) {
-    $(".logo_text", this.faceUpElem_).text("PYX");
+    $(".logo_text", this.faceUpElem_).text("InfoCorn");
     if (this.draw_ != 0) {
       $(".draw .card_number", this.faceUpElem_).text(this.draw_);
       $(".draw", this.faceUpElem_).removeClass("hide");
@@ -314,7 +314,7 @@ cah.card.BlackCard.prototype.updateCardInfo_ = function() {
       $(".pick", this.faceUpElem_).addClass("hide");
     }
   } else {
-    $(".logo_text", this.faceUpElem_).text("Log's CAH");
+    $(".logo_text", this.faceUpElem_).text("InfoCorn");
   }
 };
 
